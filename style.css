@@ -1,4 +1,4 @@
-/* Reset & Import Font Modern */
+/* Reset & Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -9,17 +9,17 @@
 }
 
 body {
-    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
-    color: #4a4a4a;
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+    color: #444;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* Header & Navbar */
+/* Header & Navigasi */
 header {
-    background-color: #2b2b2b;
-    padding: 18px 8%;
+    background-color: #1e1e24;
+    padding: 16px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,36 +39,37 @@ header {
 nav a {
     color: #ffffff;
     text-decoration: none;
-    margin-left: 20px;
+    margin-left: 15px;
     font-size: 14px;
     font-weight: 500;
     transition: all 0.3s ease;
-    padding: 6px 12px;
+    padding: 7px 14px;
     border-radius: 20px;
 }
 
 nav a:hover, nav a.active {
-    color: #2b2b2b;
+    color: #1e1e24;
     background-color: #ff8da1;
 }
 
-/* Container Utama */
+/* Container / Wadah Utama */
 .container {
-    max-width: 900px;
+    max-width: 850px;
+    width: 90%;
     margin: 40px auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.7);
+    padding: 35px 30px;
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     flex: 1;
 }
 
 /* Home / Hero Section */
 .hero {
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 .profile-img {
@@ -76,15 +77,16 @@ nav a:hover, nav a.active {
     height: 170px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #ff1493;
+    border: 4px solid #ff1493;
     box-shadow: 0 6px 20px rgba(255, 20, 147, 0.3);
     margin-bottom: 20px;
 }
 
 .hero h1 {
-    font-size: 32px;
-    color: #2b2b2b;
-    margin-bottom: 8px;
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 6px;
+    font-weight: 700;
 }
 
 .badge-tkj {
@@ -93,19 +95,21 @@ nav a:hover, nav a.active {
     color: white;
     padding: 6px 18px;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
 }
 
 .hero p {
-    font-size: 16px;
+    font-size: 15px;
     color: #555;
-    max-width: 600px;
+    line-height: 1.7;
+    max-width: 580px;
     margin: 0 auto 25px;
 }
 
-/* Tombol / Button */
+/* Tombol Utama */
 .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -114,72 +118,84 @@ nav a:hover, nav a.active {
     text-decoration: none;
     border-radius: 25px;
     font-weight: 600;
+    font-size: 14px;
     box-shadow: 0 4px 12px rgba(255, 20, 147, 0.3);
-    transition: transform 0.2s, background-color 0.2s;
+    transition: all 0.2s ease;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     background-color: #d81b60;
 }
 
 /* Judul Halaman */
 .page-title {
     text-align: center;
-    font-size: 26px;
-    color: #2b2b2b;
+    font-size: 24px;
+    color: #222;
     margin-bottom: 25px;
     position: relative;
+    font-weight: 700;
 }
 
 .page-title::after {
     content: '';
     display: block;
-    width: 60px;
+    width: 50px;
     height: 4px;
     background: #ff1493;
     margin: 8px auto 0;
     border-radius: 2px;
 }
 
-/* Content Box */
+/* Kategori & Card Teks */
 .content-card {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    border-left: 5px solid #ff69b4;
 }
 
 .content-card h3 {
     color: #ff1493;
     margin-bottom: 10px;
+    font-size: 18px;
 }
 
-/* Grid Skills */
+.content-card p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Grid Skill */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
 }
 
 .skill-card {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
+    background: #ffffff;
+    padding: 18px 15px;
+    border-radius: 16px;
     text-align: center;
     font-weight: 600;
-    color: #2b2b2b;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    border-bottom: 4px solid #ff69b4;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    border-bottom: 3px solid #ff69b4;
     transition: transform 0.2s;
 }
 
 .skill-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
+    background-color: #fff0f5;
 }
 
-/* Grid Sertifikat */
+/* Grid Sertifikat (Dengan Gambar) */
 .cert-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -188,12 +204,28 @@ nav a:hover, nav a.active {
 
 .cert-card {
     background: white;
-    border-radius: 15px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    border: 1px solid #ffe4e1;
     text-align: center;
-    padding: 20px;
-    border: 2px stroke #ffb6c1;
+    padding-bottom: 20px;
+    transition: transform 0.2s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-4px);
+}
+
+.cert-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-bottom: 2px solid #ffe4e1;
+}
+
+.cert-info {
+    padding: 15px 15px 0;
 }
 
 .cert-badge {
@@ -201,17 +233,30 @@ nav a:hover, nav a.active {
     color: #d81b60;
     padding: 4px 12px;
     border-radius: 12px;
-    font-size: 12px;
+    font-size: 11px;
+    font-weight: 600;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
-/* Link Sosial Media (Kontak) */
+.cert-card h3 {
+    font-size: 16px;
+    color: #222;
+    margin-bottom: 6px;
+}
+
+.cert-card p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Tombol Sosial Media (Kontak) */
 .social-links {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    max-width: 400px;
+    gap: 14px;
+    max-width: 420px;
     margin: 0 auto;
 }
 
@@ -221,17 +266,18 @@ nav a:hover, nav a.active {
     justify-content: center;
     gap: 10px;
     padding: 14px;
-    border-radius: 12px;
+    border-radius: 14px;
     text-decoration: none;
     color: white;
+    font-size: 14px;
     font-weight: 600;
-    transition: transform 0.2s, opacity 0.2s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .social-btn:hover {
-    transform: scale(1.02);
-    opacity: 0.9;
+    transform: translateY(-2px);
+    opacity: 0.95;
 }
 
 .btn-email { background-color: #e91e63; }
@@ -240,7 +286,7 @@ nav a:hover, nav a.active {
 
 /* Footer */
 footer {
-    background-color: #2b2b2b;
+    background-color: #1e1e24;
     color: #ffb6c1;
     text-align: center;
     padding: 18px;
@@ -248,15 +294,15 @@ footer {
     margin-top: auto;
 }
 
-/* Responsif HP */
+/* Respon HP */
 @media (max-width: 600px) {
     header {
         flex-direction: column;
         gap: 12px;
     }
     nav a {
-        margin: 0 4px;
+        margin: 0 3px;
         font-size: 12px;
-        padding: 4px 8px;
+        padding: 5px 10px;
     }
 }
