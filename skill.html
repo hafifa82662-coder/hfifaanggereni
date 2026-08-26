@@ -4,7 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skill | Hafifa Anggereni</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); color: #444; min-height: 100vh; display: flex; flex-direction: column; }
+        header { background-color: #1e1e24; padding: 16px 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); position: sticky; top: 0; z-index: 1000; }
+        .logo { color: #ff69b4; font-size: 20px; font-weight: 700; letter-spacing: 1px; }
+        nav a { color: #ffffff; text-decoration: none; margin-left: 15px; font-size: 14px; font-weight: 500; padding: 7px 14px; border-radius: 20px; transition: all 0.3s; }
+        nav a:hover, nav a.active { color: #1e1e24; background-color: #ff8da1; }
+        .container { max-width: 850px; width: 90%; margin: 40px auto; padding: 35px 30px; background: rgba(255, 255, 255, 0.9); border-radius: 24px; box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2); flex: 1; text-align: center; }
+        .page-title { text-align: center; font-size: 24px; color: #222; margin-bottom: 25px; font-weight: 700; }
+        .page-title::after { content: ''; display: block; width: 50px; height: 4px; background: #ff1493; margin: 8px auto 0; border-radius: 2px; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; }
+        .skill-card { background: #ffffff; padding: 18px 15px; border-radius: 16px; text-align: center; font-weight: 600; font-size: 14px; color: #333; box-shadow: 0 4px 10px rgba(0,0,0,0.04); border-bottom: 3px solid #ff69b4; transition: transform 0.2s; }
+        .skill-card:hover { transform: translateY(-4px); background-color: #fff0f5; }
+        footer { background-color: #1e1e24; color: #ffb6c1; text-align: center; padding: 18px; font-size: 13px; margin-top: auto; }
+        @media (max-width: 600px) { header { flex-direction: column; gap: 12px; } nav a { margin: 0 3px; font-size: 12px; padding: 5px 10px; } }
+    </style>
 </head>
 <body>
 
