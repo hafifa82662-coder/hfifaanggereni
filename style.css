@@ -1,4 +1,4 @@
-/* Reset & Font */
+/* Reset & Import Font Modern */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -52,7 +52,7 @@ nav a:hover, nav a.active {
     background-color: #ff8da1;
 }
 
-/* Container / Wadah Utama */
+/* Container / Wadah Utama (Membuat Semua Konten Rata Tengah) */
 .container {
     max-width: 850px;
     width: 90%;
@@ -64,6 +64,7 @@ nav a:hover, nav a.active {
     box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.6);
     flex: 1;
+    text-align: center; /* Mengatur semua teks di dalam wadah ke tengah */
 }
 
 /* Home / Hero Section */
@@ -148,19 +149,20 @@ nav a:hover, nav a.active {
     border-radius: 2px;
 }
 
-/* Kategori & Card Teks */
+/* Kategori & Card Teks (Diatur Rata Tengah) */
 .content-card {
     background: #ffffff;
     padding: 24px;
     border-radius: 16px;
     margin-bottom: 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-    border-left: 5px solid #ff69b4;
+    border-top: 4px solid #ff69b4; /* Garis hiasan dipindah ke atas agar pas dengan posisi tengah */
+    text-align: center;
 }
 
 .content-card h3 {
     color: #ff1493;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-size: 18px;
 }
 
@@ -168,6 +170,7 @@ nav a:hover, nav a.active {
     font-size: 14px;
     line-height: 1.8;
     color: #555;
+    text-align: center;
 }
 
 /* Grid Skill */
@@ -195,7 +198,7 @@ nav a:hover, nav a.active {
     background-color: #fff0f5;
 }
 
-/* Grid Sertifikat (Dengan Gambar) */
+/* Grid Sertifikat */
 .cert-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -226,6 +229,7 @@ nav a:hover, nav a.active {
 
 .cert-info {
     padding: 15px 15px 0;
+    text-align: center;
 }
 
 .cert-badge {
@@ -249,6 +253,7 @@ nav a:hover, nav a.active {
     font-size: 13px;
     color: #666;
     line-height: 1.5;
+    text-align: center;
 }
 
 /* Tombol Sosial Media (Kontak) */
