@@ -6,15 +6,25 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color:  rgb(228, 124, 212);
+    background-color: rgb(228, 124, 212);
     color: #333;
+    line-height: 1.6;
 }
 
+/* Header & Navigasi */
 header {
     background-color: #222;
     color: rgb(233, 117, 188);
     padding: 20px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 22px;
+    margin-bottom: 5px;
 }
 
 nav {
@@ -25,12 +35,15 @@ nav a {
     color: white;
     text-decoration: none;
     margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
 nav a:hover {
     color: #ffb3d4;
 }
 
+/* Hero Section */
 .hero {
     text-align: center;
     padding: 50px 20px;
@@ -38,44 +51,100 @@ nav a:hover {
 }
 
 .hero img {
-    width: 150px;
-    height: 150px;
+    width: 170px;
+    height: 170px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid #fd07a2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .hero h2 {
     margin-top: 20px;
     font-size: 30px;
+    color: #222;
 }
 
+.hero p {
+    font-size: 18px;
+    color: #444;
+}
+
+/* Section Umum */
 section {
     padding: 40px 20px;
     text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 section h2 {
     margin-bottom: 15px;
+    color: #222;
+    border-bottom: 3px solid #fd07a2;
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
+#tentang p {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Section Motivasi */
+.motivasi-box p {
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 12px;
+    border-left: 5px solid #fd07a2;
+    border-radius: 5px;
+}
+
+/* Skills Section */
 .skills {
     display: flex;
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
+    margin-top: 15px;
 }
 
 .skills div {
     background-color: #ffafe7;
-    color: white;
+    color: #222;
+    font-weight: bold;
     padding: 15px 25px;
     border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background-color 0.2s;
 }
 
+.skills div:hover {
+    transform: scale(1.05);
+    background-color: #fd07a2;
+    color: white;
+}
+
+/* Kontak Section */
+#kontak a {
+    color: #222;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#kontak a:hover {
+    color: #fd07a2;
+    text-decoration: underline;
+}
+
+/* Footer */
 footer {
     background-color: #222;
     color: white;
     text-align: center;
     padding: 15px;
+    margin-top: 20px;
 }
