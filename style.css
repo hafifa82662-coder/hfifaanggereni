@@ -1,81 +1,142 @@
+/* Reset Basic & Font */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color:  rgb(228, 124, 212);
+    background-color: #f4f7f6;
     color: #333;
+    line-height: 1.6;
 }
 
+/* Header & Navigasi */
 header {
-    background-color: #222;
-    color: rgb(233, 117, 188);
-    padding: 20px;
-    text-align: center;
+    background-color: #1e293b;
+    color: #fff;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-nav {
-    margin-top: 10px;
+header h1 {
+    font-size: 1.5rem;
 }
 
 nav a {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    margin: 0 10px;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #ffb3d4;
+    color: #38bdf8;
 }
 
+/* Hero / Home Section */
 .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 50px 20px;
-    background-color: rgb(228, 124, 212);
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
 }
 
 .hero img {
-    width: 150px;
-    height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #fd07a2;
+    border: 4px solid #38bdf8;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero h2 {
-    margin-top: 20px;
-    font-size: 30px;
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
+.hero p {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+}
+
+/* Section Umum */
 section {
-    padding: 40px 20px;
-    text-align: center;
+    padding: 50px 20px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 section h2 {
-    margin-bottom: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0f172a;
+    border-bottom: 3px solid #38bdf8;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+#tentang, #kontak {
+    text-align: center;
+}
+
+/* Skill Section */
+#skill {
+    text-align: center;
 }
 
 .skills {
     display: flex;
     justify-content: center;
-    gap: 15px;
     flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .skills div {
-    background-color: #ffafe7;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 10px;
+    background-color: #38bdf8;
+    color: #0f172a;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background-color 0.2s;
 }
 
+.skills div:hover {
+    transform: translateY(-3px);
+    background-color: #0284c7;
+    color: #fff;
+}
+
+/* Footer */
 footer {
-    background-color: #222;
-    color: white;
     text-align: center;
-    padding: 15px;
+    padding: 20px;
+    background-color: #0f172a;
+    color: #94a3b8;
+    margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
 }
