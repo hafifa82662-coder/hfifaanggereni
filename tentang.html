@@ -4,7 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Saya | Hafifa Anggereni</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); color: #444; min-height: 100vh; display: flex; flex-direction: column; }
+        header { background-color: #1e1e24; padding: 16px 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); position: sticky; top: 0; z-index: 1000; }
+        .logo { color: #ff69b4; font-size: 20px; font-weight: 700; letter-spacing: 1px; }
+        nav a { color: #ffffff; text-decoration: none; margin-left: 15px; font-size: 14px; font-weight: 500; padding: 7px 14px; border-radius: 20px; transition: all 0.3s; }
+        nav a:hover, nav a.active { color: #1e1e24; background-color: #ff8da1; }
+        .container { max-width: 850px; width: 90%; margin: 40px auto; padding: 35px 30px; background: rgba(255, 255, 255, 0.9); border-radius: 24px; box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2); flex: 1; text-align: center; }
+        .page-title { text-align: center; font-size: 24px; color: #222; margin-bottom: 25px; font-weight: 700; }
+        .page-title::after { content: ''; display: block; width: 50px; height: 4px; background: #ff1493; margin: 8px auto 0; border-radius: 2px; }
+        .content-card { background: #ffffff; padding: 24px; border-radius: 16px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); border-top: 4px solid #ff69b4; text-align: center; }
+        .content-card h3 { color: #ff1493; margin-bottom: 12px; font-size: 18px; }
+        .content-card p { font-size: 14px; line-height: 1.8; color: #555; text-align: center; }
+        footer { background-color: #1e1e24; color: #ffb6c1; text-align: center; padding: 18px; font-size: 13px; margin-top: auto; }
+        @media (max-width: 600px) { header { flex-direction: column; gap: 12px; } nav a { margin: 0 3px; font-size: 12px; padding: 5px 10px; } }
+    </style>
 </head>
 <body>
 
@@ -24,8 +40,8 @@
         
         <div class="content-card">
             <h3>Profil Singkat</h3>
-            <p>Halo, saya <strong>Hafifa Anggereni</strong>. Saya adalah pelajar yang sedang menempuh pendidikan di SMKN 3 Soppeng jurusan Teknik Komputer dan Jaringan (TKJ).</p>
-            <p style="margin-top: 10px;">Saya sangat berminat untuk terus mengembangkan kemampuan di bidang perakitan sistem, jaringan komputer, serta pemrograman web dasar.</p>
+            <p>Halo, saya <strong>Hafifa Anggereni</strong>, biasa dipanggil Hafifa. Saya adalah seorang pelajar yang sedang menempuh pendidikan di SMKN 3 Soppeng jurusan Teknik Komputer dan Jaringan (TKJ).</p>
+            <p style="margin-top: 10px;">Saya senang mempelajari hal-hal baru terutama yang berkaitan dengan teknologi, komputer, perakitan PC, dan pembuatan jaringan komputer.</p>
         </div>
 
         <div class="content-card">
