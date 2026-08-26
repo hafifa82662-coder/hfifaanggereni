@@ -1,150 +1,262 @@
+/* Reset & Import Font Modern */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: rgb(228, 124, 212);
-    color: #333;
-    line-height: 1.6;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    color: #4a4a4a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Header & Navigasi */
+/* Header & Navbar */
 header {
-    background-color: #222;
-    color: rgb(233, 117, 188);
-    padding: 20px;
-    text-align: center;
+    background-color: #2b2b2b;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
-header h1 {
-    font-size: 22px;
-    margin-bottom: 5px;
-}
-
-nav {
-    margin-top: 10px;
+.logo {
+    color: #ff69b4;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 nav a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-    transition: color 0.3s;
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 6px 12px;
+    border-radius: 20px;
 }
 
-nav a:hover {
-    color: #ffb3d4;
+nav a:hover, nav a.active {
+    color: #2b2b2b;
+    background-color: #ff8da1;
 }
 
-/* Hero Section */
+/* Container Utama */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    flex: 1;
+}
+
+/* Home / Hero Section */
 .hero {
     text-align: center;
-    padding: 50px 20px;
-    background-color: rgb(228, 124, 212);
+    padding: 20px 0;
 }
 
-.hero img {
+.profile-img {
     width: 170px;
     height: 170px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #fd07a2;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 5px solid #ff1493;
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.3);
+    margin-bottom: 20px;
 }
 
-.hero h2 {
-    margin-top: 20px;
-    font-size: 30px;
-    color: #222;
+.hero h1 {
+    font-size: 32px;
+    color: #2b2b2b;
+    margin-bottom: 8px;
+}
+
+.badge-tkj {
+    display: inline-block;
+    background: #ff1493;
+    color: white;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 15px;
 }
 
 .hero p {
-    font-size: 18px;
-    color: #444;
+    font-size: 16px;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 25px;
 }
 
-/* Section Umum */
-section {
-    padding: 40px 20px;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-section h2 {
-    margin-bottom: 15px;
-    color: #222;
-    border-bottom: 3px solid #fd07a2;
+/* Tombol / Button */
+.btn {
     display: inline-block;
-    padding-bottom: 5px;
-}
-
-#tentang p {
-    background: rgba(255, 255, 255, 0.3);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-/* Section Motivasi */
-.motivasi-box p {
-    font-style: italic;
-    font-weight: bold;
-    margin-bottom: 10px;
-    background-color: rgba(255, 255, 255, 0.4);
-    padding: 12px;
-    border-left: 5px solid #fd07a2;
-    border-radius: 5px;
-}
-
-/* Skills Section */
-.skills {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 15px;
-}
-
-.skills div {
-    background-color: #ffafe7;
-    color: #222;
-    font-weight: bold;
-    padding: 15px 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 12px 28px;
+    background-color: #ff1493;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(255, 20, 147, 0.3);
     transition: transform 0.2s, background-color 0.2s;
 }
 
-.skills div:hover {
-    transform: scale(1.05);
-    background-color: #fd07a2;
-    color: white;
+.btn:hover {
+    transform: translateY(-3px);
+    background-color: #d81b60;
 }
 
-/* Kontak Section */
-#kontak a {
-    color: #222;
+/* Judul Halaman */
+.page-title {
+    text-align: center;
+    font-size: 26px;
+    color: #2b2b2b;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.page-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #ff1493;
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+/* Content Box */
+.content-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.content-card h3 {
+    color: #ff1493;
+    margin-bottom: 10px;
+}
+
+/* Grid Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: 600;
+    color: #2b2b2b;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-bottom: 4px solid #ff69b4;
+    transition: transform 0.2s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Grid Sertifikat */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.cert-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+    padding: 20px;
+    border: 2px stroke #ffb6c1;
+}
+
+.cert-badge {
+    background-color: #ffe4e1;
+    color: #d81b60;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Link Sosial Media (Kontak) */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    border-radius: 12px;
     text-decoration: none;
-    font-weight: bold;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.2s, opacity 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-#kontak a:hover {
-    color: #fd07a2;
-    text-decoration: underline;
+.social-btn:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
 }
+
+.btn-email { background-color: #e91e63; }
+.btn-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.btn-tiktok { background-color: #000000; }
 
 /* Footer */
 footer {
-    background-color: #222;
-    color: white;
+    background-color: #2b2b2b;
+    color: #ffb6c1;
     text-align: center;
-    padding: 15px;
-    margin-top: 20px;
+    padding: 18px;
+    font-size: 13px;
+    margin-top: auto;
+}
+
+/* Responsif HP */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+    nav a {
+        margin: 0 4px;
+        font-size: 12px;
+        padding: 4px 8px;
+    }
 }
