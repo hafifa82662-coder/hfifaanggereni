@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sertifikat | Hafifa Anggereni</title>
     
-    <!-- STYLE CSS LANGSUNG DI DALAM HTML -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -60,9 +59,9 @@
             background-color: #ff8da1;
         }
 
-        /* Container / Wadah Utama (Teks Rata Tengah) */
+        /* Container / Wadah Utama */
         .container {
-            max-width: 850px;
+            max-width: 950px;
             width: 90%;
             margin: 40px auto;
             padding: 35px 30px;
@@ -95,7 +94,7 @@
             border-radius: 2px;
         }
 
-        /* Grid Sertifikat */
+        /* Grid Sertifikat (Menampilkan 3 Kolom Secara Otomatis) */
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -119,7 +118,6 @@
             border-color: #ff69b4;
         }
 
-        /* Tampilan Gambar Sertifikat */
         .cert-img {
             width: 100%;
             height: 170px;
@@ -199,23 +197,31 @@
         <div class="cert-grid">
             <!-- Kartu Sertifikat 1 -->
             <div class="cert-card">
-                <!-- Taruh nama file gambar sertifikat kamu di folder Images -->
-                <img src="Images/sertifikat1.jpg" alt="Sertifikat Perakitan PC" class="cert-img">
+                <img src="Images/sertifikat1.jpg" alt="Sertifikat Hour Of Code" class="cert-img">
                 <div class="cert-info">
                     <span class="cert-badge">Jaringan & Komputer</span>
-                    <h3>Sertifikat Perakitan PC</h3>
-                    <p>Praktik keahlian perakitan & perawatan komputer SMKN 3 Soppeng.</p>
+                    <h3>Sertifikat Hour Of Code</h3>
+                    <p>Praktik Dasar Dasar Ilmu Komputer Dan Pemrograman.</p> 
                 </div>
             </div>
 
             <!-- Kartu Sertifikat 2 -->
             <div class="cert-card">
-                <!-- Taruh nama file gambar sertifikat kamu di folder Images -->
-                <img src="Images/sertifikat2.jpg" alt="Sertifikat Web Design" class="cert-img">
+                <img src="Images/sertifikat2.jpg" alt="Makeblock Logic Fundamental" class="cert-img">
                 <div class="cert-info">
-                    <span class="cert-badge">Pemrograman Web</span>
+                    <span class="cert-badge">Makeblock</span>
                     <h3>Sertifikat HTML & CSS</h3>
-                    <p>Pelatihan dasar pembuatan website portofolio modern.</p>
+                    <p>Pelatihan Makeblock Axioo.</p>
+                </div>
+            </div>
+
+            <!-- Kartu Sertifikat 3 (BARU) -->
+            <div class="cert-card">
+                <img src="Images/sertifikat3.jpg" alt="Hardware Fundamental" class="cert-img">
+                <div class="cert-info">
+                    <span class="cert-badge">Hardware Fundamental</span>
+                    <h3>Sertifikat Jaringan Dasar</h3>
+                    <p>Pelatihan Hardware Fundamental.</p>
                 </div>
             </div>
         </div>
