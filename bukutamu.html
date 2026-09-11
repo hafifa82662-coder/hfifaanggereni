@@ -1,66 +1,147 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buku Tamu | Hafifa Anggereni</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buku Tamu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    h2 {
+      margin-top: 0;
+      color: #333;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #666;
+      font-weight: bold;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    #status {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .success {
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">HAFIFA</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="tentang.html">Tentang</a>
-            <a href="skill.html">Skill</a>
-            <a href="sertifikat.html">Sertifikat</a>
-            <a href="kontak.html">Kontak</a>
-            <a href="bukutamu.html" class="active">Buku Tamu</a>
-        </nav>
-    </header>
+  <div class="container">
+    <h2>Buku Tamu</h2>
+    <form id="guestbookForm">
+      <div class="form-group">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+      </div>
 
-    <div class="container">
-        <h2 class="page-title">Buku Tamu</h2>
-        <p style="margin-bottom: 20px;">Tinggalkan pesan, saran, atau ucapan Anda di sini!</p>
+      <div class="form-group">
+        <label for="pesan">Pesan:</label>
+        <textarea id="pesan" name="pesan" placeholder="Tuliskan pesan Anda" required></textarea>
+      </div>
 
-        <!-- Form Input -->
-        <form class="guest-form" onsubmit="event.preventDefault(); alert('Terima kasih atas pesan Anda!');">
-            <div class="form-group">
-                <label for="nama">Nama Lengkap</label>
-                <input type="text" id="nama" placeholder="Masukkan nama Anda" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email / Kontak</label>
-                <input type="email" id="email" placeholder="Masukkan email Anda" required>
-            </div>
+      <button type="submit" id="btnSubmit">Kirim Pesan</button>
+    </form>
 
-            <div class="form-group">
-                <label for="pesan">Pesan / Kesan</label>
-                <textarea id="pesan" rows="4" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
-            </div>
+    <div id="status"></div>
+  </div>
 
-            <button type="submit" class="btn-submit">Kirim Pesan</button>
-        </form>
+  <script>
+    // URL Web App Google Apps Script Anda
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzZKkyMw9vv35x4G0iduVUNOWkb60CZt9fSxv1_i1Mdzc5NLbfIq5e4Lb-YeZnZksF0/exec';
 
-        <!-- Daftar Pesan yang Sudah Masuk -->
-        <div class="guest-list">
-            <h3>Pesan Terbaru</h3>
-            <div class="guest-card">
-                <h4>Andi Aisyah</h4>
-                <p>"Semangat terus untuk Hafifa! Website portofolionya sangat keren dan rapi."</p>
-            </div>
-            <div class="guest-card">
-                <h4>Rian TKJ</h4>
-                <p>"Kombinasi warna website-nya bagus sekali. Sukses terus ya!"</p>
-            </div>
-        </div>
-    </div>
+    const form = document.getElementById('guestbookForm');
+    const btnSubmit = document.getElementById('btnSubmit');
+    const statusDiv = document.getElementById('status');
 
-    <footer>
-        <p>© 2026 PORTOFOLIO HAFIFA ANGGERENI</p>
-    </footer>
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      
+      btnSubmit.disabled = true;
+      btnSubmit.innerText = 'Mengirim...';
+      statusDiv.className = '';
+      statusDiv.innerText = '';
+
+      fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+      .then(() => {
+        statusDiv.className = 'success';
+        statusDiv.innerText = 'Pesan berhasil dikirim!';
+        form.reset();
+        btnSubmit.disabled = false;
+        btnSubmit.innerText = 'Kirim Pesan';
+      })
+      .catch(error => {
+        statusDiv.className = 'error';
+        statusDiv.innerText = 'Gagal mengirim pesan!';
+        console.error('Error!', error.message);
+        btnSubmit.disabled = false;
+        btnSubmit.innerText = 'Kirim Pesan';
+      });
+    });
+  </script>
 
 </body>
 </html>
