@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buku Tamu</title>
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+    * { box-sizing: border-box; font-family: Arial, sans-serif; }
     body {
       background-color: #f4f6f9;
       display: flex;
@@ -16,6 +13,7 @@
       align-items: center;
       min-height: 100vh;
       margin: 0;
+      padding: 20px;
     }
     .container {
       background: #ffffff;
@@ -23,62 +21,36 @@
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       width: 100%;
-      max-width: 400px;
+      max-width: 450px;
     }
-    h2 {
-      margin-top: 0;
-      color: #333;
-      text-align: center;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-      color: #666;
-      font-weight: bold;
-    }
+    h2, h3 { color: #333; text-align: center; margin-top: 0; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; color: #666; font-weight: bold; }
     input[type="text"], textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 14px;
+      width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;
     }
-    textarea {
-      resize: vertical;
-      height: 100px;
-    }
+    textarea { resize: vertical; height: 80px; }
     button {
-      width: 100%;
-      padding: 12px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      font-weight: bold;
+      width: 100%; padding: 12px; background-color: #4CAF50; color: white;
+      border: none; border-radius: 5px; font-size: 16px; cursor: pointer; font-weight: bold;
     }
-    button:hover {
-      background-color: #45a049;
+    button:hover { background-color: #45a049; }
+    #status { margin-top: 15px; text-align: center; font-weight: bold; }
+    .success { color: green; }
+    .error { color: red; }
+
+    /* Area Pesan Masuk */
+    hr { margin: 25px 0; border: 0; border-top: 1px solid #eee; }
+    .pesan-list { max-height: 250px; overflow-y: auto; }
+    .pesan-item {
+      background: #f9f9f9;
+      border-left: 4px solid #4CAF50;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      border-radius: 4px;
     }
-    button:disabled {
-      background-color: #cccccc;
-      cursor: not-allowed;
-    }
-    #status {
-      margin-top: 15px;
-      text-align: center;
-      font-weight: bold;
-    }
-    .success {
-      color: green;
-    }
-    .error {
-      color: red;
-    }
+    .pesan-nama { font-weight: bold; color: #333; }
+    .pesan-teks { color: #555; margin-top: 4px; }
   </style>
 </head>
 <body>
@@ -100,30 +72,61 @@
     </form>
 
     <div id="status"></div>
+
+    <hr>
+
+    <h3>Daftar Pesan</h3>
+    <div class="pesan-list" id="pesanList">
+      <p style="text-align: center; color: #888;">Memuat pesan...</p>
+    </div>
   </div>
 
   <script>
-    // URL Web App Google Apps Script Anda
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzZKkyMw9vv35x4G0iduVUNOWkb60CZt9fSxv1_i1Mdzc5NLbfIq5e4Lb-YeZnZksF0/exec';
+    // URL Web App Terbaru
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx3_CASPjYju-N9RtZ7C8l1xPOXvOetKxXbVV67SfyQ84qWUMvieQdZNyBttJhk2vho/exec';
 
     const form = document.getElementById('guestbookForm');
     const btnSubmit = document.getElementById('btnSubmit');
     const statusDiv = document.getElementById('status');
+    const pesanList = document.getElementById('pesanList');
 
+    // Fungsi untuk memuat daftar pesan dari Google Sheets
+    function muatPesan() {
+      fetch(scriptURL)
+        .then(response => response.json())
+        .then(data => {
+          pesanList.innerHTML = '';
+          if (!data || data.length === 0) {
+            pesanList.innerHTML = '<p style="text-align:center; color:#888;">Belum ada pesan.</p>';
+            return;
+          }
+          // Tampilkan pesan terbaru di paling atas
+          data.reverse().forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'pesan-item';
+            div.innerHTML = `
+              <div class="pesan-nama">${item.nama}</div>
+              <div class="pesan-teks">${item.pesan}</div>
+            `;
+            pesanList.appendChild(div);
+          });
+        })
+        .catch(err => {
+          pesanList.innerHTML = '<p style="text-align:center; color:red;">Gagal memuat pesan.</p>';
+        });
+    }
+
+    // Kirim Pesan
     form.addEventListener('submit', e => {
       e.preventDefault();
       
       btnSubmit.disabled = true;
       btnSubmit.innerText = 'Mengirim...';
-      statusDiv.className = '';
-      statusDiv.innerText = '';
 
       fetch(scriptURL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(new FormData(form)).toString()
       })
       .then(() => {
@@ -132,15 +135,20 @@
         form.reset();
         btnSubmit.disabled = false;
         btnSubmit.innerText = 'Kirim Pesan';
+        
+        // Muat ulang daftar pesan otomatis setelah dikirim
+        setTimeout(muatPesan, 1500);
       })
       .catch(error => {
         statusDiv.className = 'error';
         statusDiv.innerText = 'Gagal mengirim pesan!';
-        console.error('Error!', error.message);
         btnSubmit.disabled = false;
         btnSubmit.innerText = 'Kirim Pesan';
       });
     });
+
+    // Muat pesan pertama kali saat halaman dibuka
+    muatPesan();
   </script>
 
 </body>
